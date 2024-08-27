@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .profile-form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .profile-form h2 {
+            margin-top: 0;
+        }
+
+        .profile-form label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        .profile-form input[type=text], 
+        .profile-form input[type=email], 
+        .profile-form input[type=password] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .profile-form button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .profile-form button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .nav-links a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Profile Page</h1>
+    </header>
+
+    <div class="container">
+        <div class="nav-links">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="login.html">login</a>
+            <a href="logout.html">Logout</a>
+        </div>
+
+        <div class="profile-form">
+            <h2>Update Profile</h2>
+            <form id="profileForm">
+                <label for="fullName"><b>Full Name</b></label>
+                <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+
+                <label for="email"><b>Email</b></label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="password"><b>New Password</b> <span>(Leave empty if you don't want to change it)</span></label>
+                <input type="password" id="password" name="password" placeholder="Enter new password">
+
+                <button type="submit">Update Profile</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Your Company</p>
+    </footer>
+
+    <script>
+        // Handle profile form submission
+        document.getElementById('profileForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting the traditional way
+
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Simulate updating user profile
+            alert(`Profile updated successfully!\n\nName: ${fullName}\nEmail: ${email}\nPassword: ${password ? 'Updated' : 'Not changed'}`);
+
+            // You would typically send this data to the server here
+            // For example:
+            // fetch('/update_profile', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify({ fullName, email, password })
+            // }).then(response => response.json())
+            //   .then(data => console.log(data))
+            //   .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
